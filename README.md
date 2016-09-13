@@ -3,7 +3,7 @@ This is a JqueryFree javascript framework
 
 #功能
 时间：2016-9-13
-+ 实现core.js
++ 实现core.js(主要是原型继承$.fn.init.prototype=$.fn和extend函数的设计)
 + 支持id选择器、class选择器、标签选择器
 + 实现each函数
 
