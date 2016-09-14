@@ -8,7 +8,7 @@ This is a JqueryFree javascript framework
 + 支持id选择器、class选择器、标签选择器
 + 实现each函数
 
-测试结果：<br>
+测试结果：
 ````
 ![测试结果](./test.png)
 
