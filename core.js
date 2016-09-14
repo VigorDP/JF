@@ -62,13 +62,13 @@
 	}
 	//测试 
 	// $.fn.extend方式调用时，this指向$.fn,即原型对象
-	$.fn.extend({
-		ab:function(){}
-	})
-	// $.extend方式调用时，this指向$,即构造函数
-	$.extend({
-		cd:function(){}
-	})
+	// $.fn.extend({
+	// 	ab:function(){}
+	// })
+	// // $.extend方式调用时，this指向$,即构造函数
+	// $.extend({
+	// 	cd:function(){}
+	// })
 
 	$.fn.extend({
 		each:function(func){
@@ -76,6 +76,7 @@
 			for(var i=0;i<len;i++){
 				func.call(this[i],this[i],i);
 			}
+			return this;
 		}
 	})
 }(this))
