@@ -1,5 +1,5 @@
 # JF
-This is a JqueryFree javascript framework
+自己编写的简化版Jquery框架，用于学习Jquery设计思想和巩固JS基础
 
 #功能
 
