@@ -9,9 +9,9 @@ This is a JqueryFree javascript framework
 + 实现each函数
 
 测试结果：<br>
-
-![测试结果](./test.png)
 ````
+![测试结果](./test.png)
+
 
 ````
 时间：2016-9-14
@@ -19,5 +19,6 @@ This is a JqueryFree javascript framework
   字符串、对象深度克隆、数组去重、解 析URL等功能函数，通过$.extend
   函数附加在$上，而不是$.prototype上)
 + 添加core.js的原理图，如下：（图片来自大搜车前端团队）
-![JF核心原理](./core.jpg)
 ````
+![JF核心原理](./core.jpg)
+
