@@ -1,0 +1,23 @@
+{
+  "name": "jqueryfree",
+  "version": "1.0.0",
+  "description": "自己编写的简化版Jquery框架，用于学习Jquery设计思想和巩固JS基础",
+  "main": "cookie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengyinchao/JF.git"
+  },
+  "author": "fyc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fengyinchao/JF/issues"
+  },
+  "homepage": "https://github.com/fengyinchao/JF#readme",
+  "devDependencies": {
+    "express": "^4.14.0"
+  }
+}
