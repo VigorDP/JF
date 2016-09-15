@@ -26,3 +26,10 @@
 ````
 ![JF核心原理](./core.jpg)
 
+##时间：2016-9-15
+```
++ 实现event.js，有三个API,$.fn.on,$.fn.off,$.fn.trigger;
++ 实现事件的订阅/发布机制，$.pubsub.subscribe,$.pubsub.unsubscribe和$.pubsub.publish;
++ 实现promise.js简易版,$.promise(fn(resolve,reject){})，参考了[这篇文章](http://www.jianshu.com/p/473cd754311f);
+```
+

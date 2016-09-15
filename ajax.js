@@ -21,13 +21,21 @@ $.extend({
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
 		}
 		xhr.send($.isEmpty(data)?null:data);
+		var res={};
 		xhr.onreadystatechange=function(){
-			if(xhr.status==200){
+			if(xhr.readyState==4&&xhr.status==200){
 				sucFun&&sucFun(JSON.parse(xhr.responseText));
+				res=JSON.parse(xhr.responseText);
 			}else{
 				errFun&&errFun(xhr.status);
 			}
 		}
+		// var timer=setTimeout(function(){
+		// 	if(xhr.readyState==4&&xhr.status==200){
+		// 		clearTimeout(timer)
+		// 		return res;
+		// 	}
+		// },2000)
 		function formatObj(obj){
 			var str='';
 			for(var i in obj){
@@ -72,5 +80,14 @@ $.extend({
 				}
 			}
 		})
-	}
+	},
+	// ajaxs:function(options){
+	// 	var result=[];
+	// 	options.forEach(function(value,key){
+	// 		debugger;
+	// 		var res=$.ajax(options[key]);
+	// 		result[key]=res;
+	// 	})
+	// 	return result;
+	// }
 })
