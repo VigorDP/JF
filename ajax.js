@@ -4,12 +4,12 @@ $.extend({
 	 * @param  {object}
 	 * @return {null}
 	 */
-	ajax:function(options){
+	ajax:function(options,success,error){
 		var url=options&&options.url||'',
 		     type=options&&options.type&&options.type.toUpperCase()||'GET',
 		     params=options&&formatObj(options.params)||'',
-		     sucFun=options&&options.success||function(){},
-		     errFun=options&&options.error||function(){},
+		     sucFun=success||function(){},
+		     errFun=error||function(){},
 		     data=options&&options.data||{};
 		     // debugger;
 		 if(params){
@@ -25,17 +25,10 @@ $.extend({
 		xhr.onreadystatechange=function(){
 			if(xhr.readyState==4&&xhr.status==200){
 				sucFun&&sucFun(JSON.parse(xhr.responseText));
-				res=JSON.parse(xhr.responseText);
 			}else{
 				errFun&&errFun(xhr.status);
 			}
 		}
-		// var timer=setTimeout(function(){
-		// 	if(xhr.readyState==4&&xhr.status==200){
-		// 		clearTimeout(timer)
-		// 		return res;
-		// 	}
-		// },2000)
 		function formatObj(obj){
 			var str='';
 			for(var i in obj){
@@ -81,13 +74,29 @@ $.extend({
 			}
 		})
 	},
-	// ajaxs:function(options){
-	// 	var result=[];
-	// 	options.forEach(function(value,key){
-	// 		debugger;
-	// 		var res=$.ajax(options[key]);
-	// 		result[key]=res;
-	// 	})
-	// 	return result;
-	// }
+	ajaxs:function(urls,onSuccess,onError){
+		var result=[];
+		var len=urls.length;
+		debugger;
+		if(len==0){
+			return [];
+		}
+		urls.forEach(function(value,key){
+			$.ajax({
+				url:value
+			},function(res){
+				len--;
+				result[key]=res;
+				//此处必须用len计数来判定回调执行时机，若用result.length==3会有问题，因为可能result[2]=res
+				//先执行完毕导致result[0]或result[1]为空，但当result[2]=res时，result.length就会更新为3了
+				if(len==0){
+					onSuccess&&onSuccess(result);
+				}
+			},
+			function(status){
+				onError(status);
+				// result=null;
+			});
+		})
+	}
 })

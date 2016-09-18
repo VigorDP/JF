@@ -33,3 +33,8 @@
 + 实现promise.js简易版,$.promise(fn(resolve,reject){})，参考了[这篇文章](http://www.jianshu.com/p/473cd754311f);
 ```
 
+##时间：2016-9-18
+```
++ 在ajax.js中添加$.ajaxs函数，该函数接受urls数组及成功和失败回调，将结果传入成功回调，结果是一个跟urls数组对应的数组，即若ulrs=[url_1,url_2]，那么结果是[resutl_url_1,result_url_2]，实现过程中遇到两个难点：1、如何确保结果有序？2、如何保证成功回调的触发时机？解决方式：对urls数组遍历时，用上index信息；用一个计数器保证所有请求结束才调用回调;
+```
+
